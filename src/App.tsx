@@ -114,9 +114,9 @@ function App() {
   }
 
   const handlePanelData = async ( productData:CreateProduct ) => {
-
+  
     if( state.selectedProductData._id === ""){
-
+    
       const productDataWithSalesData: CreateProduct = {...productData,monthlySales:generateSalesData()};
 
       console.log(productDataWithSalesData);
@@ -193,7 +193,7 @@ const handleProductClicked = async (productId: string) => {
         <SalesChart salesChartData={ state.selectedProductData.monthlySales }/>
       </div>
       <ProductGrid productClicked={ handleProductClicked } gridContent={ state.productsGridContent }/>
-      <ProductPanel deleteProduct={ handleDelete} unselectProduct={ handleUnselectProduct } sendData={ handlePanelData } panelData={ state.selectedProductData }/>
+      <ProductPanel deleteProduct={ handleDelete } unselectProduct={ handleUnselectProduct } sendData={ handlePanelData } panelData={ state.selectedProductData }/>
     </div>
   )
 }

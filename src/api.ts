@@ -5,26 +5,19 @@ const STORAGE_KEY = 'products';
 
 const readDataFromLocalStorage = (): Promise<RetrieveProduct[]> => {
     return new Promise((resolve) => {
-        try {
-            const data = localStorage.getItem(STORAGE_KEY);
-            resolve(data ? JSON.parse(data) : []);
-        } catch (error) {
-            console.error('Error reading data from localStorage:', error);
-            resolve([]);
-        }
+
+        const data = localStorage.getItem(STORAGE_KEY);
+        resolve(data ? JSON.parse(data) : []); //si la coleccion es un array con cosas lo carga, sino  la coleccion es un array vacio y se inicia un array vacio
+
     });
 };
 
 const writeDataToLocalStorage = (data: RetrieveProduct[]): Promise<void> => {
     return new Promise((resolve) => {
-        try {
-            const jsonData = JSON.stringify(data, null, 2);
+            const jsonData = JSON.stringify(data); //convierte la data a json 
             localStorage.setItem(STORAGE_KEY, jsonData);
             resolve();
-        } catch (error) {
-            console.error('Error writing data to localStorage:', error);
-            resolve();
-        }
+       
     });
 };
 

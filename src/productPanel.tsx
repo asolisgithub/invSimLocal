@@ -39,10 +39,11 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
 
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
-        sendData(product);
-        if (fileInputRef.current) {
+        if((product.name!=="")&&(product.category!=="")){
+            sendData(product);
+            if (fileInputRef.current) { //se limpia el img uploader
             fileInputRef.current.value = '';
+        }
         }
     }
 
