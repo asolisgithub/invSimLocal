@@ -1,10 +1,6 @@
 import './productPanel.css'
 import { CreateProduct } from './create-product.dto';
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
-import { createProductRequest, deleteProductById } from './api';
-import { generateSalesData } from './auxFunctions';
-
-
 
 interface ProductPanelProps {
     sendData: (data: CreateProduct) => void;

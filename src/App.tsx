@@ -2,7 +2,6 @@ import ProductPanel from "./productPanel";
 import ProductGrid from "./productGrid";
 import SalesChart from "./salesChart";
 import './App.css'
-import { SalesChartSampleData, CategoriesChartSampleData } from "./chartSampleData"
 import CategoriesChart from "./categoriesChart";
 import { RetrieveProduct } from './retrieve-product.dto';
 import { useEffect, useState } from "react";

@@ -11,9 +11,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js'
-import { Chart } from 'react-chartjs-2'
 import { MonthlySale } from './retrieve-product.dto';
-import { SalesChartSampleData } from './chartSampleData';
 
 ChartJS.register(
     ArcElement,

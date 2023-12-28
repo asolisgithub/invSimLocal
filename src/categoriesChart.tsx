@@ -1,6 +1,6 @@
 import './categoriesChart.css'
 import './salesChart.css'
-import { Line, Pie } from "react-chartjs-2";
+import {  Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,10 +13,7 @@ import {
   ActiveElement,
   ChartEvent,
 } from 'chart.js'
-import { Chart } from 'react-chartjs-2'
 import { useEffect, useState } from 'react';
-import { retrieveProductsArray } from './api';
-import { RetrieveProduct } from './retrieve-product.dto';
 import { CategoryAmount } from './category-data.dto';
 
 

@@ -40,7 +40,7 @@ export const createProductRequest = (product: CreateProduct): Promise<void> => {
     return new Promise(async (resolve) => {
         const products = await readDataFromLocalStorage();
         products.push({
-            _id: Date.now().toString(),
+            _id: Date.now().toString(), //generates a convenient unique id
             ...product,
             image: product.image || '', 
             monthlySales: product.monthlySales || [],
