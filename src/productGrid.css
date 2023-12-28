@@ -1,0 +1,30 @@
+.gridContainer {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    width:60vw;
+    flex-wrap: wrap;
+    gap:5px;
+    overflow: auto;
+}
+.productContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background-color: rgb(87, 97, 126);
+    color: white;
+    margin-top:15px;
+    margin-left: 15px;
+    padding: 15px;
+    border-radius: 20px;
+    height:15%;
+    width:15%;
+    font-size: 0.7vw;
+    gap:0px;
+}
+p {
+    margin: 0px;
+}

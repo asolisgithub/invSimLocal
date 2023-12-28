@@ -1,0 +1,33 @@
+body {
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+.container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height:100vh;
+    width:100vw;
+}
+.chartsContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap:80px;
+    width:20vw;
+    height:100vh;
+    align-items: center;
+}
+img {
+    height:6vh;
+    border-radius:5px;
+}
+.resetCategoryToAll {
+    height: 5vh;
+    width: 8vw;
+    font-size: medium;
+}
