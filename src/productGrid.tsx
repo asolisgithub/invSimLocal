@@ -1,5 +1,5 @@
 import './productGrid.css'
-import { retrieveProducts } from './api'
+
 import { RetrieveProduct } from './retrieve-product.dto';
 import { useEffect, useState } from 'react';
 

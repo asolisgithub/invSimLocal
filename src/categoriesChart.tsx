@@ -47,6 +47,7 @@ function CategoriesChart({ categoryChartData, selectedCategory }: categoryChartD
     }
 
     const handlePieClick = (event: ChartEvent, elements: ActiveElement[]) => {
+      console.log(event);
       if(elements.length > 0) {
         const clickedSegment = elements[0];
         const segmentLabel = chartData.labels[clickedSegment.index];
