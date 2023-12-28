@@ -6,7 +6,7 @@ import { SalesChartSampleData, CategoriesChartSampleData } from "./chartSampleDa
 import CategoriesChart from "./categoriesChart";
 import { RetrieveProduct } from './retrieve-product.dto';
 import { useEffect, useState } from "react";
-import { createProductRequest, deleteProductById, editProductById, retrieveProductById, retrieveProducts, retrieveProductsArray } from "./api";
+import { createProductRequest, deleteProductById, editProductById, retrieveProductById, retrieveProductsArray } from "./api";
 import { CategoryAmount } from "./category-data.dto";
 import { CreateProduct } from "./create-product.dto";
 import { generateSalesData } from "./auxFunctions";
@@ -156,20 +156,24 @@ function App() {
 
   }
 
-  const handleProductClicked = async (productId:string) => {
+const handleProductClicked = async (productId: string) => {
     await retrieveProductById(productId).then((productData) => {
-        setState({...state, selectedProductData : {_id: productData._id,
-                                                  name : productData.name,
-                                                  category : productData.category,
-                                                  description : productData.description,
-                                                  stock : productData.stock,
-                                                  monthlySales : [...productData.monthlySales],
-                                                  image: productData.image
-                                                  }
-        });
-      }
-    );
-  }
+        if (productData) {
+            setState({
+                ...state,
+                selectedProductData: {
+                    _id: productData._id,
+                    name: productData.name,
+                    category: productData.category,
+                    description: productData.description || "", // Provide a default value if description is undefined
+                    stock: productData.stock,
+                    monthlySales: [...productData.monthlySales],
+                    image: productData.image || "", // Provide a default value if image is undefined
+                },
+            });
+        }
+    });
+};
 
   const handleSelectedCategory = async (category:string) => {
     const allProductsArray = await retrieveProductsArray();
