@@ -20,7 +20,7 @@ function ProductGrid({ gridContent, productClicked }: ProductGridProps) {
         <div className="gridContainer">
             {products.map((product)=>(
                 <div className="productContainer" key={product._id} onClick={handleProductClick} data-key={product._id}>
-                    {product.image && <img src={product.image}/>}
+                    {product.image && <img className="productImage" src={product.image}/>}
                     <p>ID: {product._id}</p>
                     <p>Name: {product.name}</p>
                     <p>Stock: {product.stock}</p>

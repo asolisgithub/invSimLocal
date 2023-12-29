@@ -9,6 +9,29 @@
     gap:5px;
     overflow: auto;
 }
+@media (max-width:700px){
+    .productContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+     background-image: linear-gradient(rgb(97, 142, 145), rgb(29, 45, 51));
+    color: white;
+    margin-top:15px;
+    margin-left: 15px;
+    padding: 25px;
+    border-radius: 20px;
+    height:15%;
+    width:15%;
+    font-size: 0.7vw;
+    gap:0px;
+}
+    .productImage {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .productContainer {
     display:flex;
     flex-direction: column;
