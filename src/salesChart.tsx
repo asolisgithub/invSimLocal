@@ -32,7 +32,7 @@ function SalesChart({ salesChartData }: salesChartDataProps) {
     console.log( salesChartData );
     
     const SalesChartProductData = {
-        labels: ['JAN', 'FEB', 'MARCH', 'APR', 'MAY', 'JUN', 'JUL','AUG','SEP','OCT','NOV','DEC'],
+        labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL','AUG','SEP','OCT','NOV','DEC'],
         datasets: [
             {
             label: 'Sales Data',
