@@ -10,6 +10,7 @@ import {
     Title,
     Tooltip,
     Legend,
+    CoreChartOptions,
 } from 'chart.js'
 import { MonthlySale } from './retrieve-product.dto';
 
@@ -35,7 +36,7 @@ function SalesChart({ salesChartData }: salesChartDataProps) {
         labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL','AUG','SEP','OCT','NOV','DEC'],
         datasets: [
             {
-            label: 'Sales Data',
+            label: 'Sales',
             data: salesChartData.map((item) => item.sales),
             borderColor: 'rgba(75,192,192,1)',
             borderWidth: 2,
@@ -44,7 +45,7 @@ function SalesChart({ salesChartData }: salesChartDataProps) {
             fill: false,
             },
         ],
-        };
+    };
 
     return <Line className="salesChart" data={SalesChartProductData} />
 

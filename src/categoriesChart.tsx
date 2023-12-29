@@ -64,6 +64,13 @@ function CategoriesChart({ categoryChartData, selectedCategory, categoryChartCol
       plugins: {
         legend:{
           position: 'right',
+          labels: {
+            boxWidth: 2,
+            color: 'white',
+            font: {
+                        size: 8
+                    }
+          }
         }
       }
     }
