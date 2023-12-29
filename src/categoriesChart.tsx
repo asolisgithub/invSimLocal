@@ -1,6 +1,6 @@
 import './categoriesChart.css'
 import './salesChart.css'
-import {  Pie } from "react-chartjs-2";
+import {  Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,6 +12,7 @@ import {
   Legend,
   ActiveElement,
   ChartEvent,
+  ChartOptions,
 } from 'chart.js'
 import { useEffect, useState } from 'react';
 import { CategoryAmount } from './category-data.dto';
@@ -29,10 +30,11 @@ ChartJS.register(
 
 interface categoryChartDataProps {
   categoryChartData: CategoryAmount[];
+  categoryChartColors: string[],
   selectedCategory: (category:string) => void;
 }
 
-function CategoriesChart({ categoryChartData, selectedCategory }: categoryChartDataProps) {
+function CategoriesChart({ categoryChartData, selectedCategory, categoryChartColors }: categoryChartDataProps) {
 
     const [products, setProducts] = useState<CategoryAmount[]>([]);
     useEffect(()=>{
@@ -40,9 +42,11 @@ function CategoriesChart({ categoryChartData, selectedCategory }: categoryChartD
     },[categoryChartData]);
 
     const chartData = {
-      labels: products.map((item) => item.category),
+      labels: products.map((item) => item.category.toUpperCase()),
       datasets: [{
         data: products.map((item) => item.amount),
+        backgroundColor: categoryChartColors,
+        borderWidth: 0,
       }] 
     }
 
@@ -50,12 +54,21 @@ function CategoriesChart({ categoryChartData, selectedCategory }: categoryChartD
       console.log(event);
       if(elements.length > 0) {
         const clickedSegment = elements[0];
-        const segmentLabel = chartData.labels[clickedSegment.index];
+        const segmentLabel = chartData.labels[clickedSegment.index].toLowerCase();
         selectedCategory(segmentLabel);
       }
     }
 
-    return <Pie className="categoriesChart" data={chartData} options={{onClick: handlePieClick}}/>
+    const donutChartOptions: ChartOptions<'doughnut'> = {
+      onClick: handlePieClick,
+      plugins: {
+        legend:{
+          position: 'right',
+        }
+      }
+    }
+
+    return <Doughnut className="categoriesChart" data={chartData} options={donutChartOptions}/>
 
 }
 export default CategoriesChart;

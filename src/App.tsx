@@ -11,19 +11,39 @@ import { CreateProduct } from "./create-product.dto";
 import { generateSalesData } from "./auxFunctions";
 
 
+function generateColorPalette(size:number, baseHue = Math.random() * 360, saturation = 80, lightness = 50, alpha = 1) {
+  const colors = [];
+  const hueIncrement = 360 / size;
+
+  for (let i = 0; i < size; i++) {
+    const hue = (baseHue + i * hueIncrement) % 360;
+    const color = `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+    colors.push(color);
+  }
+
+  return colors;
+}
+
+function randomColor(baseHue = Math.random() * 360, saturation = 80, lightness = 50, alpha = 1) {
+  const color = `hsla(${baseHue}, ${saturation}%, ${lightness}%, ${alpha})`;
+  return color;
+}
+
 function App() {
   interface productsState {
-    selectedProduct: string, //activa el modo de edicion, activa el display de sales (pseudo bool: "productid" : "" )
-    selectedCategory: string, //activa el filtrar el product grid (pseudo bool: "category" : "" )
-    productsGridContent:  RetrieveProduct[], //debo guardarlo filtrado por categoria, depende de selectedCategory
+    selectedProduct: string, 
+    selectedCategory: string,
+    productsGridContent:  RetrieveProduct[],
     categories: CategoryAmount[],
-    selectedProductData: RetrieveProduct,  //debo guardarlo con los datos del producto con id selectedProduct
+    categoryColors: string[],
+    selectedProductData: RetrieveProduct, 
   }
   const [state, setState] = useState<productsState>({
     selectedProduct: "", 
     selectedCategory: "",
     productsGridContent:  [],
     categories: [],
+    categoryColors: [],
     selectedProductData: {
       _id: "",
       name: "",
@@ -37,33 +57,42 @@ function App() {
 
   const refreshPanelAndCategories = async () => {
 
-    await retrieveProductsArray().then((productsArray)=>{
-          let totalProducts: number = 0;
-          let returnArray: CategoryAmount[] = [];
-          productsArray.forEach((product)=>{
-            totalProducts++;
-            if (returnArray.some((item) => item.category === product.category)){
+await retrieveProductsArray().then((productsArray) => {
+  setState((prevState) => {
+    let totalProducts = 0;
+    let returnArray: CategoryAmount[] = [];
 
-              returnArray = returnArray.map((item) =>
-                item.category === product.category
-                ? { ...item, amount: item.amount + 1 }
-                : item
-              )
-            }else{
-              returnArray.push({category:product.category,amount:1});
-            } 
-          });
-          setState({...state, productsGridContent: [...productsArray], categories : returnArray, selectedProductData: {
-                                                                                                                        _id: "",
-                                                                                                                        name: "",
-                                                                                                                        description: "",
-                                                                                                                        category: "",
-                                                                                                                        stock: 0,
-                                                                                                                        monthlySales: [],
-                                                                                                                        image: "",
-                                                                                                                      }
-          });
+    productsArray.forEach((product) => {
+      totalProducts++;
+
+      if (returnArray.some((item) => item.category === product.category)) {
+        returnArray = returnArray.map((item) =>
+          item.category === product.category
+            ? { ...item, amount: item.amount + 1 }
+            : item
+        );
+      } else {
+        returnArray.push({ category: product.category, amount: 1 });
+      }
     });
+
+    return {
+      ...prevState,
+      productsGridContent: [...productsArray],
+      categories: returnArray,
+      categoryColors: prevState.categories.length === returnArray.length ? [...prevState.categoryColors] : generateColorPalette(returnArray.length),
+      selectedProductData: {
+        _id: "",
+        name: "",
+        description: "",
+        category: "",
+        stock: 0,
+        monthlySales: [],
+        image: "",
+      },
+    };
+  });
+});
 
   }
 
@@ -127,8 +156,9 @@ function App() {
     }else{
 
       await editProductById( state.selectedProductData._id, productData ).then(async ()=>{
-        const indexToEdit = state.productsGridContent.findIndex(product => product._id === state.selectedProductData._id);
-        const updatedProducts = [...state.productsGridContent];
+        const allProductsArray = await retrieveProductsArray();
+        const indexToEdit = allProductsArray.findIndex(product => product._id === state.selectedProductData._id);
+        const updatedProducts = [...allProductsArray];
         updatedProducts[indexToEdit] = {...updatedProducts[indexToEdit],
           name: productData.name,
           description: productData.description,
@@ -137,17 +167,43 @@ function App() {
           image: productData.image,
         }
         
-        setState({...state, selectedProductData : {
-                                _id: "",
-                                name: "",
-                                description: "",
-                                category: "",
-                                stock: 0,
-                                monthlySales: [],
-                                image: "",
-                            },
-                                productsGridContent: [...updatedProducts]
-                            })
+        let totalProducts = 0;
+        let returnArray: CategoryAmount[] = [];
+
+        updatedProducts.forEach((product) => {
+        totalProducts++;
+
+        console.log("updatedProducts: ",updatedProducts);
+
+        if (returnArray.some((item) => item.category === product.category)) {
+          returnArray = returnArray.map((item) =>
+            item.category === product.category
+              ? { ...item, amount: item.amount + 1 }
+              : item
+          );
+        } else {
+          returnArray.push({ category: product.category, amount: 1 });
+        }
+
+        });
+
+        console.log("categories: ",returnArray);
+
+        setState((prevState) => ({
+          ...prevState,
+          selectedProductData: {
+            _id: "",
+            name: "",
+            description: "",
+            category: "",
+            stock: 0,
+            monthlySales: [],
+            image: "",
+          },
+          productsGridContent: [...updatedProducts],
+          categories: returnArray,
+          categoryColors: prevState.categories.length < returnArray.length ? [...state.categoryColors, randomColor()] : [...state.categoryColors],
+        }));
 
       })
 
@@ -164,10 +220,10 @@ const handleProductClicked = async (productId: string) => {
                     _id: productData._id,
                     name: productData.name,
                     category: productData.category,
-                    description: productData.description || "", // Provide a default value if description is undefined
+                    description: productData.description || "",
                     stock: productData.stock,
                     monthlySales: [...productData.monthlySales],
-                    image: productData.image || "", // Provide a default value if image is undefined
+                    image: productData.image || "", 
                 },
             });
         }
@@ -187,7 +243,7 @@ const handleProductClicked = async (productId: string) => {
   return (
     <div className="container">
       <div className="chartsContainer">
-        <CategoriesChart selectedCategory={ handleSelectedCategory} categoryChartData={ state.categories }/>
+        <CategoriesChart selectedCategory={ handleSelectedCategory} categoryChartData={ state.categories } categoryChartColors={ state.categoryColors }/>
         <button className="resetCategoryToAll" onClick={ handleCategoryReset } >Show All Products</button>
         <SalesChart salesChartData={ state.selectedProductData.monthlySales }/>
       </div>
