@@ -64,6 +64,8 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
         }
     }
 
+    //set update and save to disabled when there is no name or no category different from "" in the component state
+    //use ternary operators to switch clases (?)
     return(
         <div className="panelContainer">
             <form onSubmit={handleSubmit} action="">
@@ -94,8 +96,7 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
                 <span>Stock</span>
                 <input onChange={handleChange} className="formInput" type="number" name="stock" value={product.stock}/>
                 </div>
-
-                { panelData.name === "" ? <button>Save</button> : <div className="buttonContainer" ><button type="submit">Update</button><button onClick={handleUnselect}>Unselect</button><button onClick={handleDelete}>Delete</button></div> }
+                { panelData.name === "" ? <button className="saveButton" disabled={(product.name===""||product.category==="")}>SAVE</button> : <div className="buttonContainer" ><button className="updateButton" type="submit" disabled={(product.name===""||product.category==="")}>UPDATE</button><button className="unselectButton" onClick={handleUnselect}>UNSELECT</button><button className="deleteButton" onClick={handleDelete}>DELETE</button></div> }
     
 
             </form>

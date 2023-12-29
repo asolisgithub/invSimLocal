@@ -11,7 +11,7 @@ import { CreateProduct } from "./create-product.dto";
 import { generateSalesData } from "./auxFunctions";
 
 
-function generateColorPalette(size:number, baseHue = Math.random() * 360, saturation = 80, lightness = 50, alpha = 1) {
+function generateColorPalette(size:number, baseHue = Math.random() * 360, saturation = 75, lightness = 60, alpha = 1) {
   const colors = [];
   const hueIncrement = 360 / size;
 
@@ -24,7 +24,7 @@ function generateColorPalette(size:number, baseHue = Math.random() * 360, satura
   return colors;
 }
 
-function randomColor(baseHue = Math.random() * 360, saturation = 80, lightness = 50, alpha = 1) {
+function randomColor(baseHue = Math.random() * 360, saturation = 75, lightness = 60, alpha = 1) {
   const color = `hsla(${baseHue}, ${saturation}%, ${lightness}%, ${alpha})`;
   return color;
 }
@@ -243,9 +243,13 @@ const handleProductClicked = async (productId: string) => {
   return (
     <div className="container">
       <div className="chartsContainer">
-        <CategoriesChart selectedCategory={ handleSelectedCategory} categoryChartData={ state.categories } categoryChartColors={ state.categoryColors }/>
-        <button className="resetCategoryToAll" onClick={ handleCategoryReset } >Show All Products</button>
-        <SalesChart salesChartData={ state.selectedProductData.monthlySales }/>
+        <div className="categoriesContainer">
+          <CategoriesChart selectedCategory={ handleSelectedCategory} categoryChartData={ state.categories } categoryChartColors={ state.categoryColors }/>
+          <button className="resetCategoryToAll" onClick={ handleCategoryReset } >SHOW ALL CATEGORIES</button>
+        </div>
+        <div className="salesContainer">
+          <SalesChart salesChartData={ state.selectedProductData.monthlySales }/>
+        </div>
       </div>
       <ProductGrid productClicked={ handleProductClicked } gridContent={ state.productsGridContent }/>
       <ProductPanel deleteProduct={ handleDelete } unselectProduct={ handleUnselectProduct } sendData={ handlePanelData } panelData={ state.selectedProductData }/>

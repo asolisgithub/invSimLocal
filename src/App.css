@@ -2,7 +2,7 @@ body {
       font-family: 'Helvetica', 'Arial', sans-serif;
       line-height: 1.6;
       color: #333;
-      background-color: #f8f8f8;
+      background-color: #000000;
       margin: 0;
       padding: 0;
     }
@@ -16,7 +16,7 @@ body {
 .chartsContainer {
     display:flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     gap:80px;
     width:20vw;
     height:100vh;
@@ -26,8 +26,28 @@ img {
     height:6vh;
     border-radius:5px;
 }
+
+.categoriesContainer {
+    margin-top: 15px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-between;
+    gap:10px;
+    width:95%;
+}
+
+.salesContainer {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    width:95%;
+}
+
 .resetCategoryToAll {
     height: 5vh;
-    width: 8vw;
+    width: 100%;
     font-size: medium;
+    background-color: rgb(6, 173, 173);
 }

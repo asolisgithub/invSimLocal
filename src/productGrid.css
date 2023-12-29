@@ -14,11 +14,11 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
-    background-color: rgb(87, 97, 126);
+     background-image: linear-gradient(rgb(97, 142, 145), rgb(29, 45, 51));
     color: white;
     margin-top:15px;
     margin-left: 15px;
-    padding: 15px;
+    padding: 25px;
     border-radius: 20px;
     height:15%;
     width:15%;
