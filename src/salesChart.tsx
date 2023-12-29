@@ -10,7 +10,6 @@ import {
     Title,
     Tooltip,
     Legend,
-    CoreChartOptions,
 } from 'chart.js'
 import { MonthlySale } from './retrieve-product.dto';
 
