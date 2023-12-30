@@ -92,7 +92,8 @@ body {
         align-items: center;
         justify-content: space-between;
         gap:10px;
-        width:40%;
+        height:90%;
+        width:35vw;
     }
     .chartsContainer {
         display:flex;
