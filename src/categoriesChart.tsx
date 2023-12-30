@@ -68,7 +68,7 @@ function CategoriesChart({ categoryChartData, selectedCategory, categoryChartCol
             boxWidth: 2,
             color: 'white',
             font: {
-                        size: 10
+                        size: 8
                     }
           }
         }
