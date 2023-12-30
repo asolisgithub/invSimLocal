@@ -204,6 +204,7 @@ font-size: 1.6vh;
         width: 50vw;
         background-color: rgb(34, 37, 37);
         color: white;
+        margin-right: 8px;
     }
     form {
         display: flex;
