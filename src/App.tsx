@@ -248,7 +248,7 @@ const handleProductClicked = async (productId: string) => {
           <button className="resetCategoryToAll" onClick={ handleCategoryReset } >SHOW ALL CATEGORIES</button>
         </div>
         <div className="salesContainer">
-          { state.selectedProductData._id !== "" ? <SalesChart salesChartData={ state.selectedProductData.monthlySales }/> : <p>Select A Product</p>}
+          { state.selectedProductData._id !== "" ? <SalesChart salesChartData={ state.selectedProductData.monthlySales }/> : <p>Select a product</p>}
         </div>
       </div>
       <div className="gridAndPanelDivMobile">
