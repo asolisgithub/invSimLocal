@@ -46,7 +46,7 @@ function SalesChart({ salesChartData }: salesChartDataProps) {
         ],
     };
 
-    return <Line className="salesChart" data={SalesChartProductData} />
+    return <Line className="salesChart" data={SalesChartProductData} options={{aspectRatio:0.8}}/>
 
 }
 export default SalesChart;
