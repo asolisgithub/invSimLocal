@@ -73,8 +73,8 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
                 {product.image && <img className="previewImage" src={product.image}/>}
 
                 <div className="inputContainer">
-                <span>Product Image</span>
-                <input ref={(input) => (fileInputRef.current = input)} onChange={handleImageUpload} className="formInput" type="file" accept="image/*" name="image"/>
+                <span>Upload Image</span>
+                <input ref={(input) => (fileInputRef.current = input)} onChange={handleImageUpload} className="imgUpload" type="file" accept="image/*" name="image"/>
                 </div>
 
                 <div className="inputContainer">
@@ -82,9 +82,9 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
                 <input onChange={handleChange} className="formInput" type="text" name="name" value={product.name}/>
                 </div>
 
-                <div className="inputContainer">
+                <div className="textareaContainer">
                 <span>Description</span>
-                <textarea onChange={handleChange} className="formInput" name="description" rows={5} value={product.description}/>
+                <textarea onChange={handleChange} className="descriptionInput" name="description" rows={5} value={product.description}/>
                 </div>
 
                 <div className="inputContainer">

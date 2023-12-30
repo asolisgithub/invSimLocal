@@ -1,11 +1,12 @@
 .panelContainer {
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 20vw;
-    background-color: rgb(34, 37, 37);
+    background-image: linear-gradient(rgb(50, 67, 68), rgb(6, 19, 24));
     color: white;
 
 }
@@ -26,15 +27,52 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-
+    height:10%;
+    font-size: 1.2vw;
 }
 
+.textareaContainer {
+    margin-right: 5px;
+    width:95%;
+    display:flex;
+    gap:10px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height:15%;
+    font-size: 1.2vw;
+}
+
+
+
 .formInput {
+    font-size: 1vw;
+    height:90%;
     width:100%;
     border-radius: 5px;
     background-color: black;
     color:white;
 }
+
+.descriptionInput {
+    font-size: 1vw;
+    height:90%;
+    width:100%;
+    border-radius: 5px;
+    background-color: black;
+    color:white;
+}
+
+
+.imgUpload {
+    font-size: 1vw;
+    height:90%;
+    width:100%;
+    border-radius: 5px;
+    background-color: transparent;
+    color:white;
+}
+
 
 textarea {
   resize: none;
@@ -51,6 +89,7 @@ button {
 }
 
 .previewImage {
+    margin-top: 10px;
     width:50%;
     height:auto;
 }
@@ -96,6 +135,53 @@ button {
     width:30%;
 }
 @media (max-width:700px){
+.inputContainer {
+    margin-right: 5px;
+    width:95%;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height:7%;
+    font-size: 1.5vh;
+}
+
+
+.textareaContainer {
+    margin-right: 5px;
+    width:95%;
+    display:flex;
+    gap:10px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height:15%;
+    font-size: 1.5vh;
+}
+
+
+
+.formInput {
+    font-size: 1.5vh;
+    height:90%;
+    width:100%;
+    border-radius: 5px;
+    background-color: black;
+    color:white;
+}
+
+.descriptionInput {
+    font-size: 1.5vh;
+    height:90%;
+    width:100%;
+    border-radius: 5px;
+    background-color: black;
+    color:white;
+}
+
+
+
+
     button {
     display: flex;
     justify-content: center;
@@ -109,7 +195,7 @@ button {
     font-weight: 700;
     background-color: rgb(41, 160, 81);
     width:95%;
-font-size: 2vh;
+font-size: 1.6vh;
 }
     .panelContainer {
         display: flex;
@@ -117,15 +203,16 @@ font-size: 2vh;
         align-items: center;
         justify-content: center;
         width: 50vw;
+        height:auto;
         background-color: rgb(34, 37, 37);
         color: white;
     }
     form {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: flex-start;
+        gap:3vh;
         align-items: stretch;
         width:92%;
-        height:100%;
     }
 }

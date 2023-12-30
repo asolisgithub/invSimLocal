@@ -26,7 +26,6 @@ img {
 }
 
 .categoriesContainer {
-    margin-top: 15px;
     display:flex;
     flex-direction:column;
     align-items: center;
@@ -36,7 +35,6 @@ img {
 }
 
 .salesContainer {
-    margin-top:15px;
     display:flex;
     flex-direction:column;
     align-items: center;
@@ -57,7 +55,7 @@ img {
     flex-direction: row;
 }
 
-@media (max-width:800px){
+@media (max-width:700px){
     .resetCategoryToAll {
         font-weight: 700;
         height: 25%;
@@ -79,14 +77,16 @@ img {
         justify-content: center;
         height:100%;
         width:55%;
+        margin-right: 15px;
     }
     .categoriesContainer {
+        margin-left: 20px;
         display:flex;
         flex-direction:column;
         align-items: center;
         justify-content: space-between;
         gap:10px;
-        width:45%;
+        width:40%;
     }
     .chartsContainer {
         display:flex;
@@ -99,7 +99,7 @@ img {
     .gridAndPanelDivMobile {
         display:flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         height:100%;
     }
 }

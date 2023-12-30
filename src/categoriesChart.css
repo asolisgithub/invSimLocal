@@ -1,5 +1,5 @@
 .categoriesChart {
-    background-color: rgb(36, 34, 37);
+    background-image: linear-gradient(rgb(65, 74, 75), rgb(34, 37, 37));
     padding:10px;
     border-radius: 10px;
 }
