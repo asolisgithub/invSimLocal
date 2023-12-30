@@ -15,7 +15,7 @@ Inventory Simulator is an interactive web app that allows you to perfom CRUD ope
 
 # Setup
 
-To get the web app up and running first clone the repo and then execute the following commands inside the "frontend" directory:
+To get the web app up and running first clone the repo and then execute the following commands inside the root directory:
 ```bash
 npm install
 npm run dev
