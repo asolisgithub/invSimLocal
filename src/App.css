@@ -2,7 +2,7 @@ body {
       font-family: 'Helvetica', 'Arial', sans-serif;
       line-height: 1.6;
       color: #333;
-      background-color: #000000;
+      background-image: linear-gradient(rgb(10, 10, 10), rgb(22, 22, 22));
       margin: 0;
       padding: 0;
     }
@@ -46,7 +46,20 @@ body {
     height: 25%;
     width: 100%;
     font-size: medium;
-    background-color: rgb(6, 173, 173);
+    background-image: linear-gradient(rgb(113, 165, 165), rgb(5, 129, 129));
+    color: white;
+}
+
+.resetCategoryToAll:hover {
+    font-weight: 700;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin-bottom: 10px;
+    height: 25%;
+    width: 100%;
+    font-size: medium;
+    background-image: linear-gradient(rgb(0, 255, 255), rgb(0, 110, 110));
+    color: white;
 }
 
 .gridAndPanelDivMobile {

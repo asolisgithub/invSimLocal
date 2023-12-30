@@ -18,7 +18,8 @@
         height:100%;
     }
 
-.inputContainer {
+.inputContainer { 
+    background:linear-gradient(90deg,rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0));
     margin-right: 5px;
     width:95%;
     display:flex;
@@ -31,6 +32,7 @@
 }
 
 .textareaContainer {
+    background:linear-gradient(90deg,rgba(255, 255, 255, 0.1),rgba(255, 255, 255, 0));
     margin-right: 5px;
     width:95%;
     display:flex;
@@ -71,7 +73,13 @@
     background-color: transparent;
     color:white;
 }
-
+img {
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.719);
+    border-width: 5px;
+    border-color: #000000;
+    border-style:ridge;
+    margin-bottom: 10px;
+}
 
 textarea {
   resize: none;
@@ -81,13 +89,17 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height:6vh;
+    height:5vh;
     border-radius: 15px;
     color: white;
     font-size: 0.8vw;
 }
 
 .previewImage {
+    box-shadow: 5px 5px 10px black;
+    border-width: 5px;
+    border-color: #000000;
+    border-style:ridge;
     margin-top: 10px;
     width:60%;
     height:auto;
@@ -101,36 +113,68 @@ button {
     width:100%;
 }
 
-.saveButton {
-    font-weight: 700;
-    background-color: rgb(41, 160, 81);
-    width:95%;
-}
 .saveButton:disabled {
     font-weight: 700;
-    background-color: darkgray;
+    background-color: #000000;
+    opacity: 0.9;
+    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #c53c3c 0, #c53c3c 1px, #000000 0, #000000 50%);
     width:95%;
 }
 
-.updateButton {
+.saveButton:enabled {
     font-weight: 700;
-    background-color: rgb(41, 160, 81);
+    background-image: linear-gradient(rgb(73, 212, 120),rgb(8, 100, 39));
+    width:95%;
+}
+
+.saveButton:enabled:hover {
+    font-weight: 700;
+    background-image: linear-gradient(rgb(0, 255, 85),rgb(3, 90, 32));
+    width:95%;
+}
+
+.updateButton:enabled {
+    font-weight: 700;
+    background-image: linear-gradient(rgb(41, 160, 81),rgb(4, 63, 23));
     width:30%;
 }
+
+.updateButton:enabled:hover {
+    font-weight: 700;
+    background-image: linear-gradient(rgb(0, 255, 85),rgb(3, 90, 32));
+    width:30%;
+}
+
 .updateButton:disabled {
     font-weight: 700;
-    background-color: darkgray;
+    background-color: #000000;
+    opacity: 0.9;
+    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #c53c3c 0, #c53c3c 1px, #000000 0, #000000 50%);
     width:30%;
 }
 .unselectButton {
     font-weight: 700;
-    background-color: rgb(42, 64, 124);
+    background-image: linear-gradient(rgb(42, 64, 124),rgb(5, 24, 71));
+    width:30%;
+}
+
+.unselectButton:hover {
+    font-weight: 700;
+    background-image: linear-gradient(rgb(0, 68, 255),rgb(5, 33, 105));
     width:30%;
 }
 
 .deleteButton {
     font-weight: 700;
-    background-color: rgb(214, 36, 36);
+    background-image: linear-gradient(rgb(214, 36, 36),rgb(105, 7, 7));
+    width:30%;
+}
+
+.deleteButton:hover {
+    font-weight: 700;
+    background-image: linear-gradient(rgb(255, 0, 0),rgb(138, 5, 5));
     width:30%;
 }
 @media (max-width:700px){

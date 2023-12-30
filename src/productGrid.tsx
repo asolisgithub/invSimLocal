@@ -21,9 +21,9 @@ function ProductGrid({ gridContent, productClicked }: ProductGridProps) {
             {products.map((product)=>(
                 <div className="productContainer" key={product._id} onClick={handleProductClick} data-key={product._id}>
                     {product.image && <img className="productImage" src={product.image}/>}
-                    <p>ID: {product._id}</p>
-                    <p>Name: {product.name}</p>
-                    <p>Stock: {product.stock}</p>
+                    <p><span className='attributeDecorator'>ID</span> {product._id}</p>
+                    <p><span className='attributeDecorator'>Name</span> {product.name}</p>
+                    <p><span className='attributeDecorator'>Stock</span> {product.stock}</p>
                 </div>
             ))}
         </div>

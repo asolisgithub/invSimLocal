@@ -10,6 +10,8 @@
     overflow: auto;
 }
 .productContainer {
+
+    box-shadow: 7px 8px 10px rgb(0, 0, 0);
     word-break: break-all;
     display:flex;
     flex-direction: column;
@@ -32,6 +34,14 @@ p {
     max-height: 4vw;
     border-radius:5px;
 }
+
+.attributeDecorator {
+    background-color: rgb(31, 31, 31);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.815);
+    padding: 3px;
+}
+
 @media (max-width:700px){
     .productImage {
     max-width: 5vh;

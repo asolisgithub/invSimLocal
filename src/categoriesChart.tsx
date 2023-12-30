@@ -54,7 +54,7 @@ function CategoriesChart({ categoryChartData, selectedCategory, categoryChartCol
       console.log(event);
       if(elements.length > 0) {
         const clickedSegment = elements[0];
-        const segmentLabel = chartData.labels[clickedSegment.index].toLowerCase();
+        const segmentLabel = chartData.labels[clickedSegment.index];
         selectedCategory(segmentLabel);
       }
     }
