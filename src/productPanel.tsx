@@ -33,13 +33,24 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
         setProduct({...product, [e.target.name] : e.target.value });
     }
 
+    const handleCategoryChange = (e:ChangeEvent<HTMLInputElement>) => {
+        setProduct({...product, category : e.target.value.toUpperCase()});
+    }
+
+    const handleNumberInputChange = (e:ChangeEvent<HTMLInputElement>) => {
+        const isValidNumber = /^\d+$/.test(e.target.value);
+        if(isValidNumber || parseInt(e.target.value,10) === 0){
+            setProduct({...product, stock : parseInt(e.target.value,10) });
+        }
+    }
+
     const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if((product.name!=="")&&(product.category!=="")){
-            sendData(product);
-            if (fileInputRef.current) { //se limpia el img uploader
-            fileInputRef.current.value = '';
-        }
+            if((product.name!=="")&&(product.category!=="")){
+                sendData(product);
+                if (fileInputRef.current) { //se limpia el img uploader
+                fileInputRef.current.value = '';
+            }
         }
     }
 
@@ -89,12 +100,12 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
 
                 <div className="inputContainer">
                 <span>Category</span>
-                <input onChange={handleChange} className="formInput" type="text" name="category" value={product.category}/>
+                <input onChange={handleCategoryChange} className="formInput" type="text" name="category" value={product.category}/>
                 </div>
 
                 <div className="inputContainer">
                 <span>Stock</span>
-                <input onChange={handleChange} className="formInput" type="number" name="stock" value={product.stock}/>
+                <input onChange={handleNumberInputChange} className="formInput" type="number" name="stock" value={product.stock}/>
                 </div>
                 { panelData.name === "" ? <button className="saveButton" disabled={(product.name===""||product.category==="")}>SAVE</button> : <div className="buttonContainer" ><button className="updateButton" type="submit" disabled={(product.name===""||product.category==="")}>UPDATE</button><button className="unselectButton" onClick={handleUnselect}>UNSELECT</button><button className="deleteButton" onClick={handleDelete}>DELETE</button></div> }
     
