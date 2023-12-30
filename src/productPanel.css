@@ -9,36 +9,18 @@
     color: white;
 
 }
-@media (max-width:700px){
-    .panelContainer {
+    form {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly;
         align-items: center;
-        justify-content: center;
-        width: 50vw;
-        background-color: rgb(34, 37, 37);
-        color: white;
-    }
-    form {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: stretch;
-        width:92%;
-        height:100%;
-    }
-}
-
-    form {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: stretch;
         width:92%;
         height:100%;
     }
 
 .inputContainer {
+    margin-right: 5px;
+    width:95%;
     display:flex;
     gap:10px;
     flex-direction: column;
@@ -59,47 +41,91 @@ textarea {
 }
 
 button {
-    display:flex;
-    align-items: center;
+    display: flex;
     justify-content: center;
+    align-items: center;
     height:6vh;
     border-radius: 15px;
     color: white;
+    font-size: 0.8vw;
 }
 
 .previewImage {
-    width:40%;
+    width:50%;
     height:auto;
 }
 
 .buttonContainer {
+    flex-wrap: wrap;
+    font-weight: 700;
     display: flex;
-    justify-content: space-between;
-    width:95%;
+    justify-content: space-around;
+    width:100%;
 }
 
 .saveButton {
+    font-weight: 700;
     background-color: rgb(41, 160, 81);
     width:95%;
 }
 .saveButton:disabled {
+    font-weight: 700;
     background-color: darkgray;
+    width:95%;
 }
 
 .updateButton {
+    font-weight: 700;
     background-color: rgb(41, 160, 81);
-    width:12vw;
+    width:30%;
 }
 .updateButton:disabled {
+    font-weight: 700;
     background-color: darkgray;
-    width:12vw;
+    width:30%;
 }
 .unselectButton {
+    font-weight: 700;
     background-color: rgb(42, 64, 124);
-    width:12vw;
+    width:30%;
 }
 
 .deleteButton {
+    font-weight: 700;
     background-color: rgb(214, 36, 36);
-    width:12vw;
+    width:30%;
+}
+@media (max-width:700px){
+    button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:4vh;
+    border-radius: 15px;
+    color: white;
+    font-size: 0.8vh;
+}
+    .saveButton {
+    font-weight: 700;
+    background-color: rgb(41, 160, 81);
+    width:95%;
+font-size: 2vh;
+}
+    .panelContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50vw;
+        background-color: rgb(34, 37, 37);
+        color: white;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: stretch;
+        width:92%;
+        height:100%;
+    }
 }

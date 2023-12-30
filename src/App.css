@@ -45,7 +45,8 @@ img {
 }
 
 .resetCategoryToAll {
-    height: 5vh;
+    font-weight: 700;
+    height: 25%;
     width: 100%;
     font-size: medium;
     background-color: rgb(6, 173, 173);
@@ -56,7 +57,14 @@ img {
     flex-direction: row;
 }
 
-@media (max-width:700px){
+@media (max-width:800px){
+    .resetCategoryToAll {
+        font-weight: 700;
+        height: 25%;
+        width: 100%;
+        font-size: 1.6vh;
+        background-color: rgb(6, 173, 173);
+    }
     .container {
         display: flex;
         flex-direction: column;
@@ -70,7 +78,7 @@ img {
         align-items: center;
         justify-content: center;
         height:100%;
-        width:65%;
+        width:55%;
     }
     .categoriesContainer {
         display:flex;
@@ -78,7 +86,7 @@ img {
         align-items: center;
         justify-content: space-between;
         gap:10px;
-        width:35%;
+        width:45%;
     }
     .chartsContainer {
         display:flex;
@@ -86,7 +94,7 @@ img {
         justify-content: space-evenly;
         gap:5px;
         width:100%;
-        align-items: center;
+        align-items: flex-end;
     }
     .gridAndPanelDivMobile {
         display:flex;
