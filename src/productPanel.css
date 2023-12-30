@@ -4,7 +4,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
     width: 20vw;
     background-image: linear-gradient(rgb(50, 67, 68), rgb(6, 19, 24));
     color: white;
@@ -90,7 +89,7 @@ button {
 
 .previewImage {
     margin-top: 10px;
-    width:50%;
+    width:60%;
     height:auto;
 }
 
@@ -203,7 +202,6 @@ font-size: 1.6vh;
         align-items: center;
         justify-content: center;
         width: 50vw;
-        height:auto;
         background-color: rgb(34, 37, 37);
         color: white;
     }

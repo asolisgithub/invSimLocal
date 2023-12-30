@@ -17,7 +17,6 @@
     align-items: flex-start;
      background-image: linear-gradient(rgb(97, 142, 145), rgb(29, 45, 51));
     color: white;
-    margin-top:15px;
     margin-left: 12px;
     padding: 25px;
     border-radius: 20px;
@@ -28,7 +27,17 @@ p {
     padding: 0px;
     margin: 2px;
 }
+.productImage {
+    max-width: 4vw;
+    max-height: 4vw;
+    border-radius:5px;
+}
 @media (max-width:700px){
+    .productImage {
+    max-width: 5vh;
+    max-height: 5vh;
+    border-radius:5px;
+}
     .gridContainer {
     display: flex;
     flex-direction: row;
