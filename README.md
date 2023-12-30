@@ -1,9 +1,8 @@
-<p align="center"><img align="center" width="280" src="./.github/logo-dark.svg#gh-dark-mode-only"/></p>
 <p align="center"><img align="center" width="280" src="./.github/logo-light.svg#gh-light-mode-only"/></p>
 <p align="center"><img src="https://skillicons.dev/icons?i=react,vite,ts" /><br/></p>
 <br/><br/>
 
-# Inventory Simulator (Local Version)?
+# Inventory Simulator (Local Version)
 
 Inventory Simulator is an interactive web app that allows you to perfom CRUD operations on fictional products.
 
