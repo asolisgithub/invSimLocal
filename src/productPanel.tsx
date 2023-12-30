@@ -48,7 +48,7 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
         e.preventDefault();
             if((product.name!=="")&&(product.category!=="")){
                 sendData(product);
-                if (fileInputRef.current) { //se limpia el img uploader
+                if (fileInputRef.current) { 
                 fileInputRef.current.value = '';
             }
         }
@@ -75,8 +75,7 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
         }
     }
 
-    //set update and save to disabled when there is no name or no category different from "" in the component state
-    //use ternary operators to switch clases (?)
+
     return(
         <div className="panelContainer">
             <form onSubmit={handleSubmit} action="">

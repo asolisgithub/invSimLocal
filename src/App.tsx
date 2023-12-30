@@ -147,8 +147,6 @@ await retrieveProductsArray().then((productsArray) => {
     
       const productDataWithSalesData: CreateProduct = {...productData,monthlySales:generateSalesData()};
 
-      console.log(productDataWithSalesData);
-
       await createProductRequest(productDataWithSalesData).then(async ()=>{
       refreshPanelAndCategories();
 
@@ -173,8 +171,6 @@ await retrieveProductsArray().then((productsArray) => {
         updatedProducts.forEach((product) => {
         totalProducts++;
 
-        console.log("updatedProducts: ",updatedProducts);
-
         if (returnArray.some((item) => item.category === product.category)) {
           returnArray = returnArray.map((item) =>
             item.category === product.category
@@ -186,8 +182,6 @@ await retrieveProductsArray().then((productsArray) => {
         }
 
         });
-
-        console.log("categories: ",returnArray);
 
         setState((prevState) => ({
           ...prevState,
