@@ -37,6 +37,10 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
         setProduct({...product, category : e.target.value.toUpperCase()});
     }
 
+    const handleNumberInputClick = () => {
+        setProduct({ ...product, stock: NaN });
+    }
+
     const handleNumberInputChange = (e:ChangeEvent<HTMLInputElement>) => {
         
         setProduct({...product, stock : parseInt(e.target.value) });
@@ -59,10 +63,6 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
     const handleDelete = () => {
         deleteProduct();
     }
-
-    const handleNumberInputClick = (e:ChangeEvent<HTMLInputElement>) => {
-        e.target.value = '';
-    }   
 
     const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
@@ -106,7 +106,7 @@ function ProductPanel( {sendData, panelData, unselectProduct, deleteProduct} : P
 
                 <div className="inputContainer">
                 <span>Stock</span>
-                <input onClick={handleNumberInputClick} onChange={handleNumberInputChange} className="formInput" type="number" name="stock" value={product.stock}/>
+                <input onClick={handleNumberInputClick } onChange={handleNumberInputChange} className="formInput" type="number" name="stock" value={product.stock}/>
                 </div>
                 { panelData.name === "" ? <button className="saveButton" disabled={(product.name===""||product.category==="")}>SAVE</button> : <div className="buttonContainer" ><button className="updateButton" type="submit" disabled={(product.name===""||product.category==="")}>UPDATE</button><button className="unselectButton" onClick={handleUnselect}>UNSELECT</button><button className="deleteButton" onClick={handleDelete}>DELETE</button></div> }
     
